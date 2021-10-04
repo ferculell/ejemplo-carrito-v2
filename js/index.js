@@ -11,12 +11,12 @@ class Producto {
 }
 
 // Instanciamos los objetos
-const prod1 = new Producto(1, "Producto 1", "imagen-producto.jpg", 200);
-const prod2 = new Producto(2, "Producto 2", "imagen-producto.jpg", 300);
-const prod3 = new Producto(3, "Producto 3", "imagen-producto.jpg", 800);
-const prod4 = new Producto(4, "Producto 4", "imagen-producto.jpg", 100);
-const prod5 = new Producto(5, "Producto 5", "imagen-producto.jpg", 500);
-const prod6 = new Producto(6, "Producto 6", "imagen-producto.jpg", 900);
+const prod1 = new Producto(1, "Producto 1", "./img/imagen-producto.jpg", 200);
+const prod2 = new Producto(2, "Producto 2", "./img/imagen-producto.jpg", 300);
+const prod3 = new Producto(3, "Producto 3", "./img/imagen-producto.jpg", 800);
+const prod4 = new Producto(4, "Producto 4", "./img/imagen-producto.jpg", 100);
+const prod5 = new Producto(5, "Producto 5", "./img/imagen-producto.jpg", 500);
+const prod6 = new Producto(6, "Producto 6", "./img/imagen-producto.jpg", 900);
 
 // Construimos un array con los objetos como elementos
 const stock = [prod1, prod2, prod3, prod4, prod5, prod6];
