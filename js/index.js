@@ -54,7 +54,12 @@ function mostrarStock() {
         document.querySelector('#stock').appendChild(tarjeta);
     }
 
-    inicio += 3;  // Incrementamos en tres unidades el punto de inicio de la muestra de productos
+    if (inicio + 3 >= stock.length) {
+        document.querySelector('#btnMore').disabled = true;  // Deshabilitamos el botón 'Más Productos'
+    } else {
+        inicio += 3;  // Incrementamos en tres unidades el punto de inicio de la muestra de productos
+    }
+
 }
 
 mostrarStock(); // Ejecutamos la vista inicial con la primera fila de productos
