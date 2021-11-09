@@ -16,10 +16,13 @@ const prod2 = new Producto(2, "Producto 2", "./img/imagen-producto.jpg", 300);
 const prod3 = new Producto(3, "Producto 3", "./img/imagen-producto.jpg", 800);
 const prod4 = new Producto(4, "Producto 4", "./img/imagen-producto.jpg", 100);
 const prod5 = new Producto(5, "Producto 5", "./img/imagen-producto.jpg", 500);
-const prod6 = new Producto(6, "Producto 6", "./img/imagen-producto.jpg", 900);
+const prod6 = new Producto(6, "Producto 6", "./img/imagen-producto.jpg", 900); 
+const prod7 = new Producto(7, "Producto 7", "./img/imagen-producto.jpg", 300);
+const prod8 = new Producto(8, "Producto 8", "./img/imagen-producto.jpg", 400);
+const prod9 = new Producto(9, "Producto 9", "./img/imagen-producto.jpg", 700);
 
 // Construimos un array con los objetos como elementos
-const stock = [prod1, prod2, prod3, prod4, prod5, prod6];
+const stock = [prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9];
 
 
 
