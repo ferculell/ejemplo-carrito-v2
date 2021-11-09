@@ -28,34 +28,36 @@ const stock = [prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9];
 
 ///// Creamos la vista de los productos con la info de los objetos instanciados ///////////
 
-// En esta variable vamos acumulando los templates generados por el ciclo
-let acumuladorStockHTML = ``;
+let inicio = 0;  // En esta variable llevamos la cuenta para la posición inicial del stock a mostrar
 
-// En este ciclo vamos generando un template por cada producto en stock
-for (let i = 0; i < stock.length; i++) {
-    let template = `
-    <div class="card" style="width:200px">
+function mostrarStock() {
+    // En este ciclo generamos una fila de tres tarjetas de productos
+    for (let i = inicio; i < inicio + 3; i++) {
+        let tarjeta = document.createElement('div');
+        tarjeta.setAttribute("class", "card col-4")
+        tarjeta.innerHTML = `
         <img class="card-img-top" src=${stock[i].imagen} alt="Card image" style="width:100%">
         <div class="card-body">
             <h4 class="card-title">${stock[i].nombre}</h4>
             <p class="card-text">Precio $${stock[i].precio}</p>
             <button 
-              class="btn btn-primary" 
-              data-id=${stock[i].id}
-              data-nombre=${stock[i].nombre.replaceAll(" ", "_")} // Reemplazamos los espacios en blanco para evitar errores
-              data-precio=${stock[i].precio} 
-              data-imagen=${stock[i].imagen} 
-              onclick="agregarProducto(event)"
+                class="btn btn-primary" 
+                data-id=${stock[i].id}
+                data-nombre=${stock[i].nombre.replaceAll(" ", "_")} // Reemplazamos los espacios en blanco para evitar errores
+                data-precio=${stock[i].precio} 
+                data-imagen=${stock[i].imagen} 
+                onclick="agregarProducto(event)"
             >Comprar</button>
         </div>
-    </div>
-    `;
+        `;
+        // Enviamos cada tarjeta al HTML
+        document.querySelector('#stock').appendChild(tarjeta);
+    }
 
-    acumuladorStockHTML += template;  // Acá concatenamos cada template con los acumulados
+    inicio += 3;  // Incrementamos en tres unidades el punto de inicio de la muestra de productos
 }
 
-// Enviamos los templates acumulados al HTML
-document.querySelector('#stock').innerHTML = acumuladorStockHTML;
+mostrarStock(); // Ejecutamos la vista inicial con la primera fila de productos
 
 
 
