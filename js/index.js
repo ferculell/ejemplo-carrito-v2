@@ -19,10 +19,12 @@ const prod5 = new Producto(5, "Producto 5", "./img/imagen-producto.jpg", 500);
 const prod6 = new Producto(6, "Producto 6", "./img/imagen-producto.jpg", 900); 
 const prod7 = new Producto(7, "Producto 7", "./img/imagen-producto.jpg", 300);
 const prod8 = new Producto(8, "Producto 8", "./img/imagen-producto.jpg", 400);
-const prod9 = new Producto(9, "Producto 9", "./img/imagen-producto.jpg", 700);
+const prod9 = new Producto(9, "Producto 9", "./img/imagen-producto.jpg", 700); 
+const prod10 = new Producto(8, "Producto 10", "./img/imagen-producto.jpg", 400);
+const prod11 = new Producto(9, "Producto 11", "./img/imagen-producto.jpg", 700);
 
 // Construimos un array con los objetos como elementos
-const stock = [prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9];
+const stock = [prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9, prod10, prod11];
 
 
 
@@ -35,21 +37,30 @@ function mostrarStock() {
     for (let i = inicio; i < inicio + 3; i++) {
         let tarjeta = document.createElement('div');
         tarjeta.setAttribute("class", "card col-4")
-        tarjeta.innerHTML = `
-        <img class="card-img-top" src=${stock[i].imagen} alt="Card image" style="width:100%">
-        <div class="card-body">
-            <h4 class="card-title">${stock[i].nombre}</h4>
-            <p class="card-text">Precio $${stock[i].precio}</p>
-            <button 
-                class="btn btn-primary" 
-                data-id=${stock[i].id}
-                data-nombre=${stock[i].nombre.replaceAll(" ", "_")} // Reemplazamos los espacios en blanco para evitar errores
-                data-precio=${stock[i].precio} 
-                data-imagen=${stock[i].imagen} 
-                onclick="agregarProducto(event)"
-            >Comprar</button>
-        </div>
-        `;
+        if (stock[i]) {
+            tarjeta.innerHTML = `
+            <img class="card-img-top" src=${stock[i].imagen} alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">${stock[i].nombre}</h4>
+                <p class="card-text">Precio $${stock[i].precio}</p>
+                <button 
+                    class="btn btn-primary" 
+                    data-id=${stock[i].id}
+                    data-nombre=${stock[i].nombre.replaceAll(" ", "_")} // Reemplazamos los espacios en blanco para evitar errores
+                    data-precio=${stock[i].precio} 
+                    data-imagen=${stock[i].imagen} 
+                    onclick="agregarProducto(event)"
+                >Comprar</button>
+            </div>
+            `;
+        } else {
+            tarjeta.innerHTML = `
+            <img class="card-img-top" src="./img/imagen-producto.jpg" alt="Placeholder" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">No hay más productos</h4>
+            </div>
+            `;
+        }
         // Enviamos cada tarjeta al HTML
         document.querySelector('#stock').appendChild(tarjeta);
     }
@@ -106,6 +117,7 @@ function mostrarCarrito() {
 
 // Función para agregar productos al carrito
 function agregarProducto(event) {
+    console.log(carrito)
     let encontrado = carrito.findIndex(item => item.id == event.target.dataset.id);
     if (encontrado == -1) {
         let productoElegido = new Producto(event.target.dataset.id,
