@@ -72,9 +72,13 @@ function mostrarStock() {
 
 /////// Creamos el carrito /////////////
 
-// Si hay carrito en el localStorage lo cargamos, si no creamos el array vacío
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let carrito = [];
 
+// Si hay carrito en el localStorage lo cargamos y lo mostramos
+if (localStorage.getItem("carrito")) {
+    carrito = JSON.parse(localStorage.getItem("carrito"));
+    mostrarCarrito();
+}
 
 // Creamos la función para la vista del carrito en el HTML
 
