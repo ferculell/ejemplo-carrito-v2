@@ -122,6 +122,7 @@ function agregarProducto(event) {
         carrito[encontrado].cantidad += 1;
     }
     mostrarCarrito();
+    actualizarTotal();
 }
 
 // Función para eliminar un producto del carrito
@@ -129,12 +130,14 @@ function eliminarProducto(id) {
     let encontrado = carrito.findIndex(item => item.id == id);
     carrito.splice(encontrado, 1);
     mostrarCarrito();
+    actualizarTotal();
 }
 
 // Función para vaciar el carrito
 function vaciarCarrito() {
     carrito = [];
     mostrarCarrito();
+    actualizarTotal();
 }
 
 // Función para incrmentar la cantidad de un producto en el carrito
@@ -142,6 +145,7 @@ function incrementar(id) {
     let encontrado = carrito.findIndex(item => item.id == id);
     carrito[encontrado].cantidad += 1;
     mostrarCarrito();
+    actualizarTotal();
 }
 
 // Función para decrmentar la cantidad de un producto en el carrito
@@ -149,4 +153,12 @@ function decrementar(id) {
     let encontrado = carrito.findIndex(item => item.id == id);
     if (carrito[encontrado].cantidad > 1) carrito[encontrado].cantidad -= 1;
     mostrarCarrito();
+    actualizarTotal();
+}
+
+// Función para actualizar el total del carrito
+function actualizarTotal() {
+    let total = 0;
+    carrito.forEach(item => total += (item.cantidad * item.precio));
+    document.querySelector('#total').innerHTML = "$" + total;
 }
