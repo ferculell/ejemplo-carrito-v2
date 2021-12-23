@@ -20,8 +20,8 @@ const prod6 = new Producto(6, "Producto 6", "./img/imagen-producto.jpg", 900);
 const prod7 = new Producto(7, "Producto 7", "./img/imagen-producto.jpg", 300);
 const prod8 = new Producto(8, "Producto 8", "./img/imagen-producto.jpg", 400);
 const prod9 = new Producto(9, "Producto 9", "./img/imagen-producto.jpg", 700); 
-const prod10 = new Producto(8, "Producto 10", "./img/imagen-producto.jpg", 400);
-const prod11 = new Producto(9, "Producto 11", "./img/imagen-producto.jpg", 700);
+const prod10 = new Producto(10, "Producto 10", "./img/imagen-producto.jpg", 400);
+const prod11 = new Producto(11, "Producto 11", "./img/imagen-producto.jpg", 700);
 
 // Construimos un array con los objetos como elementos
 const stock = [prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9, prod10, prod11];
